@@ -1,0 +1,42 @@
+{
+    "events" : {
+        "E" : {
+            "value" : false
+        }
+    },
+    "variables" : {},
+    "intro" : {
+        "current" : "0",
+        "0" : {
+            "text" : "A",
+            "next" : "1"
+        },
+        "1" : {
+            "text" : "B",
+            "next" : "2"
+        },
+        "2" : {
+            "text" : "C",
+            "options" : [
+                {
+                    "text" : "D",
+                    "next" : "3"
+                },
+                {
+                    "text" : "E",
+                    "next" : "4"
+                }
+            ]
+        },
+        "3" : {
+            "text" : "D",
+            "next" : "4"
+        },
+        "4" : {
+            "text" : "E",
+            "isEnd" : true,
+            "next" : "0"
+        }
+    }
+
+}

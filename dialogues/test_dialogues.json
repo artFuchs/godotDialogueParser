@@ -1,0 +1,356 @@
+{
+	"events" : {
+		"attacked Clara" : {
+			"value" : false,
+			"city" : {
+				"current_branch" : "alone"
+			}
+		},
+		"joined Clara" : {
+			"value" : false,
+			"city" : {
+				"current_branch" : "party Clara"
+			}
+		}
+	},
+	"variables" : {
+		"Player_Name" : "Pedro"
+	},
+
+	"intro" : {
+		"background" : {
+			"default" : "res://images/Dense-winter-forest_night.jpg",
+			"morning" : "res://images/Dense-winter-forest.jpg",
+			"road" : "res://images/forest_road.jpg"
+		},
+		"images" : {
+			"clara" : "res://images/clara/clara.png",
+			"clara_fire" : "res://images/clara/clara_showing_fire.png",
+			"clara_hit" : "res://images/clara/clara_hit.png",
+			"clara_stunned" : "res://images/clara/clara_stunned.png",
+			"clara_angry" : "res://images/clara/clara_angry.png"
+		},
+		"current" : "noite",
+		"noite" : {
+			"text" : "A noite está fria.",
+			"next" : "você"
+		},
+		"você" : {
+			"text" : "Voce saiu de casa para partir em uma aventura, e agora se arrepende amargamente de ter feito isso. \nEm sua casa havia o conforto de sua cama, da lareira na sala. \nAgora você está perdido no meio de uma floresta, seus equipamentos foram levados por bandidos, e está nevando.",
+			"next" : "morrer"
+		},
+		"morrer" : {
+			"text" : "\"É isso.\", você pensa, \"Vou morrer aqui.\"",
+			"next" : "barulho"
+		},
+		"barulho" : {
+			"text" : "Você ouve um barulho e se põe de pé num salto. Há um grosso galho lado, e você o pega.",
+			"next" : "demônio"
+		},
+		"demônio" : {
+			"image" : "clara",
+			"text" : "Em sua frente aparece um demônio feminino, que o vê e sorri.",
+			"next" : "ola"
+		},
+		"ola" : {
+			"speaker" : "demônio",
+			"image" : "clara",
+			"text" : "Olá, aventureiro.",
+			"next" : "frio"
+		},
+		"frio" : {
+			"speaker" : "demônio",
+			"image" : "clara",
+			"text" : "A noite está fria não é mesmo? Você parece estar com frio...",
+			"next" : "esquentar"
+		},
+		"esquentar" : {
+			"speaker" : "demônio",
+			"image" : "clara_fire",
+			"text" : "Você quer que eu o esquente? (Ela ergue a mão, conjurando fogo mágico no ar)",
+			"options" : [
+				{
+					"text" : "Atacar",
+					"next" : "ataca"
+				}, {
+					"text" : " \"Sim, por favor. Está muito frio esta noite.\" ",
+					"next" : "fogo"
+				}
+			 ]
+		},
+
+		"ataca" : {
+			"text" : "Você avança, gritando \"Morra, monstro!!\" e bate com o galho com toda sua força na cabeça da criatura a sua frente. O galho se parte com um estalo.",
+			"image" : "clara_hit",
+			"next" : "mao",
+			"event" : "attacked Clara"
+		},
+		"mao" : {
+			"text" : "A demônio coloca a mão na cabeça, atordoada. Chamas aparecem ao redor dela, fazendo você recuar.",
+			"next" : "sangue",
+			"image" : "clara_stunned"
+		},
+		"sangue" : {
+			"speaker" : "demônio",
+			"text" : "Ah... Isso... Isso é sangue?...",
+			"next" : "pagar"
+		},
+		"pagar" : {
+			"speaker" : "demônio",
+			"text" : "Você irá pagar por isso!!!!!!",
+			"image" : "clara_angry",
+			"next" : "foge"
+		},
+		"foge" : {
+			"image" : "",
+			"text" : "Sem equipamentos, você sai correndo sem direção floresta a dentro, enquanto a demônio joga fogos mágicos em sua direção. \nPor fim, você consegue despistá-la, se escondendo atrás de uma arvore. \nVocê a ouve gritando \"Você vai ver! Quando eu te achar, irei te queimar vivo!!!\"",
+			"next" : "afastam"
+		},
+		"afastam" : {
+			"text" : "Quando os berros da demônio se afastam, você sai de seu esconderijo e começa a andar na direção oposta aos berros dela. Você só espera nunca encontra-la novamente.",
+			"next" : "saiu"
+		},
+		"saiu" : {
+			"text" : "Por fim você encontra a saida da floresta. A sua frente há uma estrada, a qual você começa a seguir",
+			"background" : "road",
+			"isEnd" : true,
+			"next" : "saiu"
+		},
+
+		"fogo" : {
+			"speaker" : "demônio",
+			"text" : "Aqui, fique perto do fogo. ( Ela posiciona o fogo mágico no ar, você se aproxima, agradecido.)",
+			"next" : "tempo"
+		},
+		"tempo" : {
+			"text" : "Vocês ficam por um tempo em silêncio. Ela te observa enquanto você se aquece. Quando você se sente mais aquecido ela começa a conversar.",
+			"next" : "nome"
+		},
+		"nome" : {
+			"speaker" : "demônio",
+			"text" : "Então... meu nome é Clara. Qual o seu?",
+			"write" : "Player_Name",
+			"next" : "historia"
+		},
+		"historia" : {
+			"speaker" : "demônio",
+			"text" : "%Player_Name%... Bonito nome... Diga-me... porque você está em uma floresta em uma noite de neve, sem equipamentos?",
+			"next" : "conta"
+		},
+		"conta" : {
+			"text" : "Você conta sua história, enquanto ela ouve atentamente.",
+			"next" : "entendo"
+		},
+		"entendo" : {
+			"speaker" : "Clara",
+			"text" : "Entendo... você saiu em busca de aventura e deu de cara com bandidos que tiraram tudo de ti... que azar...",
+			"next" : "aventura"
+		},
+		"aventura" : {
+			"speaker" : "Clara",
+			"text" : "Mas sabe... eu estou atrás de uma aventura também! %Player_Name%... o que tu acha de se unir a mim, pelo menos por hora?",
+			"options" : [
+				{
+					"text" : "juntar-se a Clara",
+					"next" : "legal"
+				},
+				{
+					"text" : "continuar sozinho",
+					"next" : "pena"
+				}
+			]
+		},
+
+		"legal" : {
+			"speaker" : "Clara",
+			"text" : "Legal!! Então vamos em uma aventura!",
+			"next" : "o que tem em mente",
+			"event" : "joined Clara"
+		},
+		"o que tem em mente" : {
+			"text" : "Você se levanta, dizendo \"Então. O que tem em mente?\" ",
+			"next" : "juntar guilda"
+		},
+		"juntar guilda" : {
+			"speaker" : "Clara",
+			"text" : "Hm... Tem uma guilda de aventureiros na cidade aqui perto. Acho que a primeira coisa a fazer é nos juntarmos a ela.",
+			"next" : "saem da floresta"
+		},
+		
+		"pena" : {
+			"speaker" : "Clara",
+			"text" : "Você não quer se juntar a mim?... Pena...",
+			"next" : "companhia"
+		},
+		"companhia" : {
+			"speaker" : "Clara",
+			"text" : "Bom... eu estou indo me juntar a uma guilda de aventureiros na cidade que fica perto daqui... me parece um bom lugar para começar, tanto para mim quanto para você... \nO que acha de irmos juntaos até a cidade?",
+			"next" : "saem da floresta"
+		},
+
+		"saem da floresta" : {
+			"text" : "A neve para de cair e o dia começa a clarear quando vocês saem da floresta. Vocês encontram a estrada que leva em direção a cidade e a seguem.",
+			"isEnd" : true,
+			"next" : "saem da floresta"
+		}
+	},
+
+	"city" : {
+		"current_branch" : "with Clara",
+		"party Clara" : {
+			"current" : "0",
+			"0" : {
+				"speaker" : "Clara",
+				"text" : "Chegamos na cidade! Ela é grande, não é? Tem tanta gente por aqui... O que é aquilo?",
+				"next" : "1"
+			},
+			"1" : {
+				"text" : "Clara olha para uma banca vendendo cachorro-quente. Você percebe que faz mais de 10 horas desde sua ultima refeição e também fica com fome.\n Mas você não tem dinheiro.",
+				"next" : "2"
+			},
+			"2" : {
+				"speaker" : "Clara",
+				"text" : "Ah, você foi roubado, né? Não te preocupa. Eu tenho dinheiro.",
+				"next" : "3"
+			},
+			"3" : {
+				"text" : "Clara compra dois cachorros-quentes, e vocês comem felizes.",
+				"next" : "4"
+			},
+			"4" : {
+				"speaker" : "Clara",
+				"text" : "Bom, agora que comemos, que tal procurarmos a guilda de aventureiros?",
+				"next" : "5"
+			},
+			"5" : {
+				"text" : "Vocês andam pela cidade e enfim encontram o predio da guilda de aventureiros.",
+				"next" : "6"
+			},
+			"6" : {
+				"speaker" : "Clara",
+				"text" : "Então vamos entrar!",
+				"next" : "7"
+			},
+			"7" : {
+				"text" : "Vocês entram no prédio da guilda. Grandes aventuras esperam por vocês a partir de agora.",
+				"isEnd" : true,
+				"next" : "7"
+			}
+		},
+		"with Clara" : {
+			"current" : "0",
+			"0" : {
+				"speaker" : "Clara",
+				"text" : "Chegamos na cidade! Ela é grande, não é? Tem tanta gente por aqui... O que é aquilo?",
+				"next" : "1"
+			},
+			"1" : {
+				"text" : "Clara olha para uma banca vendendo cachorro-quente. Você percebe que faz mais de 10 horas desde sua ultima refeição e também fica com fome.\n Mas você não tem dinheiro.",
+				"next" : "2"
+			},
+			"2" : {
+				"speaker" : "Clara",
+				"text" : "Ah, você foi roubado, né? Não te preocupa. Eu tenho dinheiro.",
+				"next" : "3"
+			},
+			"3" : {
+				"text" : "Clara compra dois cachorros-quentes, e vocês comem felizes.",
+				"next" : "4"
+			},
+			"4" : { 
+				"speaker" : "Clara",
+				"text" : "Bom... Foi uma viagem divertida, não é?",
+				"next" : "5"
+			},
+			"5" : { 
+				"speaker" : "Clara",
+				"text" : "Obrigada por me fazer companhia. Nos separamos aqui, eu acho.",
+				"next" : "6"
+			},
+			"6" : {
+				"speaker" : "Clara",
+				"text" : "Bom, até mais!",
+				"next" : "7"
+			},
+			"7" : {
+				"text":"E Clara sai para procurar o prédio da guilda de aventureiros, deixando-o sozinho." ,
+				"next": "8"
+			},
+			"8" : {
+				"text" : "Você resolve que já teve o bastante e segue para a estrada, para voltar para casa.",
+				"isEnd" : true,
+				"next" : "8"
+			}
+		},
+		"alone" : {
+			"current" : "0",
+			"0" : {
+				"text" : "Após andar alguns quilômetros pela estrada, você chega em uma cidade.",
+				"next" : "1"
+			},
+			"1" : {
+				"text" : "A cidade é movimentada. Várias pessoas andando nas ruas. Está perto do horário do almoço, e portanto há varios restaurantes abertos. \nVocê percebe que está com fome, pois faz mais de 10 horas desde a sua ultima refeição.",
+				"next" : "2"
+			},
+			"2" : {
+				"text" : "Mas você não tem dinheiro.",
+				"next" : "3"
+			},
+			"3" : {
+				"text" : "Você sente uma presença assustadora atrás de si. Ao se virar, você vê a demônio.",
+				"next" : "4"
+			},
+			"4" : {
+				"speaker" : "demônio",
+				"text" : "Então você veio para o mesmo lugar que eu vim não é? Você irá pagar pelo que me fez!!!",
+				"next" : "5"
+			},
+			"5" : {
+				"text" : "Um circulo de fogo é conjurado ao redor de vocês. Você não tem para onde escapar. \nO calor intenso começa a fazer sua pressão baixar, e sua visão fica turva. \nVocê ergue o pedaço de madeira que você pegou na floresta, e se pergunta porque não o soltou na floresta ou no caminho para cá. Mas isso não importa agora.",
+				"next" : "6"
+			},
+			"6" : {
+				"text" : "\"Ei!!\" Você ouve alguém dizer, e então um vento súbito faz o circulo de fogo se estinguir",
+				"next" : "7"
+			},
+			"7" : {
+				"text" : "Ao redor de vocês, há guardas com lanças apontando para os dois",
+				"next" : "8"
+			},
+			"8" : {
+				"speaker" : "Guarda",
+				"text" : "Vocês estão presos por infringir o decreto 49. Lutas são proíbidas nos limites desta cidade.",
+				"next" : "9"
+			},
+			"9" : {
+				"text" : "Você protesta, dizendo: \"Espera! Isso é um mal entendido! Essa louca que me atacou! Eu não queria briga!\"",
+				"next" : "10"
+			},
+			"10" : {
+				"speaker" : "demônio",
+				"text" : "Você me atacou na floresta!!",
+				"next" : "11"
+			},
+			"11" : {
+				"text" : "\"Você tentou me queimar vivo!\", você diz.",
+				"next" : "12"
+			},
+			"12" : {
+				"speaker" : "demônio",
+				"text" : "O quê? Não! Eu estava oferecendo minha ajuda!",
+				"next" : "13"
+			},
+			"13" : {
+				"speaker" : "Guarda",
+				"text" : "Calados! Não importa o que aconteceu antes! Vocês estão presos por infringir uma lei na cidade! \nAgora venham.",
+				"next" : "14"
+			},
+			"14" : {
+				"text" : "Por causa de um mal entendido, agora vocês dois estão presos. Fim",
+				"next" : "14",
+				"isEnd" : true
+			}
+		}
+
+	}
+}
